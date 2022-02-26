@@ -1,0 +1,1 @@
+main = print(max (6 * 4)  5 * 10)

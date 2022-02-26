@@ -1,4 +1,4 @@
-main = print (getParticipants 0 0 7000)
+main = print (getParticipants 0 0 700)
 
 getParticipants :: Int -> Int -> Int -> Int
 getParticipants farmers shakes_count handshakes 
