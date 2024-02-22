@@ -1,19 +1,23 @@
-main = print (mergesort[9, 3, 10, 2, 8, 5, 1])
+main = do
+    print (merge [6,7,2] [8,2,3])
+    print (leftHalf[6,7,2,78,8,2,3])
+    print (rightHalf[6,7,2,78,8,2,3])
+    print (mergeSort[6,7,2,78,8,2,3])
 
 merge :: [Int] -> [Int] -> [Int]
-merge xs [] = xs
-merge [] ys = ys
-merge (x:xs) (y:ys)
-    | x <= y = x : merge xs (y:ys)
+merge a [] = a
+merge [] b = b
+merge (x:xs) (y:ys) 
+    | x < y = x : merge xs (y:ys)
     | otherwise = y : merge (x:xs) ys
 
-lefthalf :: [Int] -> [Int]
-lefthalf a = take (length a `div` 2) a
+leftHalf :: [Int] -> [Int]
+leftHalf a = take (div (length a) 2) a
 
-righthalf :: [Int] -> [Int]
-righthalf a = drop (length a `div` 2) a
+rightHalf :: [Int] -> [Int]
+rightHalf a = drop (div (length a) 2) a
 
-mergesort :: [Int] -> [Int]
-mergesort [] = []
-mergesort [x] = [x]
-mergesort xs = merge (mergesort (lefthalf xs)) (mergesort (righthalf xs))
+mergeSort :: [Int] -> [Int]
+mergeSort [] = []
+mergeSort [x] = [x]
+mergeSort x = merge (mergeSort (leftHalf x)) (mergeSort (rightHalf x))

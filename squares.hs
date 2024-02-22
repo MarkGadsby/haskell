@@ -1,4 +1,7 @@
-main = print (apply (*7) [3,4,9,6])
+main = do 
+    print (squares [3,4,9,6])
+    print (squareRoot [3,4,9,6])
+    print (apply (/5) [3,4,9,6])
 
 squares :: [Float] -> [Float]
 squares [] = []
