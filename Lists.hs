@@ -1,4 +1,4 @@
-main = print(list_len [1,2,3,4,5,6,7])
+main = print(list_len ['m','a','r','k'])
 
 list_len::[a] -> Int 
 list_len [] = 0 

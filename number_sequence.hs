@@ -1,4 +1,4 @@
-main = print (factorial 1000)
+main = print (factorial 4)
 
 nthTerm :: Integer -> Integer -> Integer
 nthTerm 1 i = 1
