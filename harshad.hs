@@ -1,22 +1,20 @@
-main = print (keepDecrementing 0 600) 
+main = do
+    print (get_nth_harshard 600 0) 
 
---sumDigits 0 = 0
---sumDigits n = mod n 10 + sumDigits (div n 10)
+get_nth_harshard :: Integer -> Integer -> Integer 
+get_nth_harshard c n
+    | c == 0 = n
+    | otherwise = get_nth_harshard (c - 1) (get_next_harshad (n + 1))
 
-sumDigits :: Integer -> Integer
-sumDigits n
+sum_digits :: Integer -> Integer
+sum_digits n
     | n == 0 = 0
-    | otherwise = mod n 10 + sumDigits (div n 10)
+    | otherwise = mod n 10 + sum_digits (div n 10)
 
-isHarshad :: Integer -> Bool  
-isHarshad n = mod n (sumDigits n) == 0
+is_harshad :: Integer -> Bool  
+is_harshad n = mod n (sum_digits n) == 0
 
-keepDecrementing :: Integer -> Integer -> Integer 
-keepDecrementing c n
-    | n == 0 = c
-    | otherwise = keepDecrementing (getNextHarshad (c + 1)) (n - 1)
-
-getNextHarshad :: Integer -> Integer 
-getNextHarshad n
-    | isHarshad n = n 
-    | otherwise = getNextHarshad (n + 1)
+get_next_harshad :: Integer -> Integer
+get_next_harshad n 
+    | is_harshad n  = n 
+    | otherwise = get_next_harshad (n + 1) 
