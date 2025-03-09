@@ -7,6 +7,21 @@ main = do
     let num = 48
     putStrLn (show num) 
     print (is_Prime num)
+    print (is_Prime 12)
+    print (is_Prime 13)
+    print (is_Prime 14)
+    print (is_Prime 15)
+    print (is_Prime 16)
+    print (is_Prime 17)
+    print (is_Prime 18)
+    print (is_Prime 19)
+    print (is_Prime 20)
+    print (is_Prime 21)
+    print (is_Prime 22)
+    print (is_Prime 23)
+    print (is_Prime 24)
+    print (is_Prime 25)
+    print (is_cleanly_divisable 18 2)
 
 maximun_of:: Int -> Int -> Int -> Int
 maximun_of x y z = max x (max y z)

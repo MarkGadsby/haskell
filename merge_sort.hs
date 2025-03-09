@@ -1,20 +1,15 @@
-main = do 
-    print (mergeSort[2, 45, 22, 19, 58, 21, 3, 44, 23, 20, 59, 22])
+merge :: [Int]->[Int]->[Int]
+merge [] l = l
+merge l [] = l
+merge (x:xs)(y:ys)
+    | x < y = x : merge xs (y:ys)
+    | otherwise = y : merge ys (x:xs) 
 
-merge :: [Int] -> [Int] -> [Int]
-merge a [] = a
-merge [] b = b
-merge (x : xs) (y : ys) 
-    | x < y = x : merge xs (y : ys) 
-    | otherwise = y : merge (x : xs) ys
+main = print(mergeSort [3,56,45,9,1,7,10,2,11,6,12,8])
 
-leftHalf :: [Int] -> [Int]
-leftHalf a = take (div (length a) 2) a
+midpoint :: [a]->Int
+midpoint x = div (length x) 2
 
-rightHalf :: [Int] -> [Int]
-rightHalf a = drop (div (length a) 2) a
-
-mergeSort :: [Int] -> [Int]
-mergeSort [] = []
+mergeSort :: [Int]->[Int]
 mergeSort [x] = [x]
-mergeSort xs = merge (mergeSort (leftHalf xs)) (mergeSort (rightHalf xs)) 
+mergeSort l = merge (mergeSort (take (midpoint l) l)) (mergeSort (drop (midpoint l) l))

@@ -3,9 +3,7 @@ main = print(sumOfSquares 45)
 sumOfSquares :: Int -> Int
 sumOfSquares n
     | n <= 1 = n
-    | otherwise = nSquared + sumOfSquares(n- 1)
-    where nSquared = n * n
-
+    | otherwise = n * n + sumOfSquares(n- 1)
 
 sumSquares :: [Int] -> Int
 sumSquares l
